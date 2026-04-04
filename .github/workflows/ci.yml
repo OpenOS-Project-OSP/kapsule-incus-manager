@@ -13,6 +13,7 @@ jobs:
     name: Python (daemon + CLI)
     runs-on: ubuntu-24.04
     strategy:
+      fail-fast: false
       matrix:
         component: [daemon, cli]
     defaults:

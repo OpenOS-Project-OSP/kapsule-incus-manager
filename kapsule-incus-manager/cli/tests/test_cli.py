@@ -27,7 +27,8 @@ def _mock_response(data: Any, status_code: int = 200) -> httpx.Response:
 
 
 def _runner() -> CliRunner:
-    return CliRunner(mix_stderr=False)
+    # mix_stderr was removed in Click 8.2; stderr is separate by default
+    return CliRunner()
 
 
 def _invoke(args: list[str], mock_data: Any = None, status_code: int = 200):
