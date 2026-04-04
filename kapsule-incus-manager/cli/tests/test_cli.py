@@ -18,11 +18,16 @@ from kim.cli.main import cli
 # Helpers
 # ---------------------------------------------------------------------------
 
+_DUMMY_REQUEST = httpx.Request("GET", "http://127.0.0.1:8765/")
+
+
 def _mock_response(data: Any, status_code: int = 200) -> httpx.Response:
+    # httpx.Response.raise_for_status() requires a request to be attached.
     return httpx.Response(
         status_code=status_code,
         content=json.dumps(data).encode(),
         headers={"content-type": "application/json"},
+        request=_DUMMY_REQUEST,
     )
 
 
