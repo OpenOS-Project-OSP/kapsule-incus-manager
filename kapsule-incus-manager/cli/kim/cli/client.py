@@ -120,7 +120,7 @@ class DaemonClient:
         try:
             tty.setraw(fd)
 
-            async with websockets.connect(  # type: ignore[attr-defined]
+            async with websockets.connect(
                 url,
                 ping_interval=20,
                 ping_timeout=10,
