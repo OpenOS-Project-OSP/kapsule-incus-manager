@@ -2,9 +2,6 @@
 
 from __future__ import annotations
 
-import sys
-from typing import Any
-
 import click
 from .client import DaemonClient
 from .provision_generic import generic

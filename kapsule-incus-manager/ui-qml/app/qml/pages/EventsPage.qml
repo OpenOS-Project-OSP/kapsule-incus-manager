@@ -31,8 +31,12 @@ Page {
     }
 
     header: ToolBar {
-        RowLayout { anchors.fill: parent; anchors.leftMargin: 12; anchors.rightMargin: 12
-            Label { text: "Events"; font.pixelSize: 16; font.bold: true }
+        RowLayout { anchors.fill: parent
+        anchors.leftMargin: 12
+        anchors.rightMargin: 12
+            Label { text: "Events"
+            font.pixelSize: 16
+            font.bold: true }
             Item { Layout.fillWidth: true }
             TextField {
                 placeholderText: "Filter…"
@@ -45,7 +49,8 @@ Page {
                 onClicked: root.paused = !root.paused
             }
             Button {
-                text: "Clear"; flat: true
+                text: "Clear"
+                flat: true
                 onClicked: eventModel.clear()
             }
         }
@@ -78,12 +83,24 @@ Page {
 
                 Row {
                     id: eventRow
-                    anchors { left: parent.left; right: parent.right; verticalCenter: parent.verticalCenter }
+                    anchors { left: parent.left
+                    right: parent.right
+                    verticalCenter: parent.verticalCenter }
                     spacing: 8
 
-                    Label { text: timestamp; color: "#94a3b8"; font.family: "monospace"; font.pixelSize: 11 }
-                    Label { text: "[" + type + "]"; color: "#60a5fa"; font.family: "monospace"; font.pixelSize: 11 }
-                    Label { visible: project.length > 0; text: project; color: "#a78bfa"; font.family: "monospace"; font.pixelSize: 11 }
+                    Label { text: timestamp
+                    color: "#94a3b8"
+                    font.family: "monospace"
+                    font.pixelSize: 11 }
+                    Label { text: "[" + type + "]"
+                    color: "#60a5fa"
+                    font.family: "monospace"
+                    font.pixelSize: 11 }
+                    Label { visible: project.length > 0
+                    text: project
+                    color: "#a78bfa"
+                    font.family: "monospace"
+                    font.pixelSize: 11 }
                     Label {
                         text: payload
                         color: "#e2e8f0"
@@ -95,8 +112,11 @@ Page {
                 }
 
                 Rectangle {
-                    anchors { left: parent.left; right: parent.right; bottom: parent.bottom }
-                    height: 1; color: "#1e293b"
+                    anchors { left: parent.left
+                    right: parent.right
+                    bottom: parent.bottom }
+                    height: 1
+                    color: "#1e293b"
                 }
             }
         }

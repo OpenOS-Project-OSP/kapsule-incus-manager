@@ -1,5 +1,4 @@
 import React from "react";
-import type { InstanceStatus } from "../api/client";
 
 const COLORS: Record<string, string> = {
   Running:  "#22c55e",

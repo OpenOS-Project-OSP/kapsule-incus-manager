@@ -65,7 +65,9 @@ Page {
             anchors.leftMargin: 12
             anchors.rightMargin: 12
 
-            Label { text: "Containers"; font.pixelSize: 16; font.bold: true }
+            Label { text: "Containers"
+            font.pixelSize: 16
+            font.bold: true }
             Item  { Layout.fillWidth: true }
 
             Button {
@@ -86,7 +88,9 @@ Page {
         id: errorBar
         property string text: ""
         visible: false
-        anchors { top: parent.top; left: parent.left; right: parent.right }
+        anchors { top: parent.top
+        left: parent.left
+        right: parent.right }
         height: visible ? errorLabel.implicitHeight + 16 : 0
         color: "#fef2f2"
         border.color: "#fca5a5"
@@ -96,12 +100,15 @@ Page {
             id: errorLabel
             text: errorBar.text
             color: "#b91c1c"
-            anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 12 }
+            anchors { verticalCenter: parent.verticalCenter
+            left: parent.left
+            leftMargin: 12 }
         }
         Button {
             text: "✕"
             flat: true
-            anchors { right: parent.right; verticalCenter: parent.verticalCenter }
+            anchors { right: parent.right
+            verticalCenter: parent.verticalCenter }
             onClicked: errorBar.visible = false
         }
     }
@@ -109,7 +116,9 @@ Page {
     // ── Table ─────────────────────────────────────────────────────────────
     HorizontalHeaderView {
         id: header
-        anchors { top: errorBar.bottom; left: parent.left; right: parent.right }
+        anchors { top: errorBar.bottom
+        left: parent.left
+        right: parent.right }
         syncView: tableView
         model: ["Name", "Status", "Image", "Project", "CPU", "Memory", "Actions"]
     }
@@ -117,8 +126,10 @@ Page {
     TableView {
         id: tableView
         anchors {
-            top: header.bottom; left: parent.left
-            right: parent.right; bottom: parent.bottom
+            top: header.bottom
+            left: parent.left
+            right: parent.right
+            bottom: parent.bottom
         }
         model: instanceModel
         clip: true
@@ -187,8 +198,10 @@ Page {
                         text: inst.cpu_usage > 0
                             ? (inst.cpu_usage * 100).toFixed(1) + "%"
                             : "—"
-                        color: "#6b7280"; font.pixelSize: 13
-                        verticalAlignment: Text.AlignVCenter; height: parent.height
+                        color: "#6b7280"
+                        font.pixelSize: 13
+                        verticalAlignment: Text.AlignVCenter
+                        height: parent.height
                     }
                 }
                 Component {
@@ -197,8 +210,10 @@ Page {
                         text: inst.memory_usage_bytes > 0
                             ? (inst.memory_usage_bytes / 1048576).toFixed(0) + " MB"
                             : "—"
-                        color: "#6b7280"; font.pixelSize: 13
-                        verticalAlignment: Text.AlignVCenter; height: parent.height
+                        color: "#6b7280"
+                        font.pixelSize: 13
+                        verticalAlignment: Text.AlignVCenter
+                        height: parent.height
                     }
                 }
                 Component {
@@ -210,31 +225,36 @@ Page {
                         Button {
                             text: "Start"
                             visible: inst.status === "Stopped"
-                            flat: true; font.pixelSize: 12
+                            flat: true
+                            font.pixelSize: 12
                             onClicked: client.startInstance(inst.name, inst.project)
                         }
                         Button {
                             text: "Stop"
                             visible: inst.status === "Running"
-                            flat: true; font.pixelSize: 12
+                            flat: true
+                            font.pixelSize: 12
                             onClicked: client.stopInstance(inst.name, false, inst.project)
                         }
                         Button {
                             text: "Restart"
                             visible: inst.status === "Running"
-                            flat: true; font.pixelSize: 12
+                            flat: true
+                            font.pixelSize: 12
                             onClicked: client.restartInstance(inst.name, false, inst.project)
                         }
                         Button {
                             text: "Freeze"
                             visible: inst.status === "Running"
-                            flat: true; font.pixelSize: 12
+                            flat: true
+                            font.pixelSize: 12
                             onClicked: client.freezeInstance(inst.name, inst.project)
                         }
                         Button {
                             text: "Unfreeze"
                             visible: inst.status === "Frozen"
-                            flat: true; font.pixelSize: 12
+                            flat: true
+                            font.pixelSize: 12
                             onClicked: client.startInstance(inst.name, inst.project)
                         }
                         Button {
